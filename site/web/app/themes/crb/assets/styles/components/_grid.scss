@@ -1,0 +1,6 @@
+// Grid system
+
+.sidebar {
+	@include make-col();
+  	@include make-col-span($sidebar-sm-columns);
+}

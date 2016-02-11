@@ -1,0 +1,11 @@
+.list-results {
+	justify-content: stretch;
+	.list-item {
+		margin-bottom: $grid-gutter-width;
+	}
+	.list-item-wrap {
+		border: 1px solid $gray-lighter;
+		padding: $spacer / 2;
+		border-radius: $border-radius;
+	}
+}

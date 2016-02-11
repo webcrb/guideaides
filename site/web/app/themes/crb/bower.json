@@ -1,0 +1,22 @@
+{
+  "name": "sage",
+  "homepage": "https://roots.io/sage/",
+  "authors": [
+    "Ben Word <ben@benword.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~4",
+    "angular": "~1.5.0",
+    "angular-animate": "~1.5.0",
+    "angular-touch": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-resource": "~1.5.0",
+    "angular-route": "~1.5.0",
+    "animate.css": "~3.5.1",
+    "angularjs-viewhead": "~0.0.1",
+    "angucomplete-alt": "~2.2.0"
+  },
+  "overrides": {}
+}

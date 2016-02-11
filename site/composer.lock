@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d334b6fe41b8e534b69ff983db204ed",
-    "content-hash": "cacb048055c27f6d9264dbaee7eb28c4",
+    "hash": "fdfb9f94a8fbed5bbef265789ed0905b",
+    "content-hash": "0d99f8f998139623c66fb18cb398162e",
     "packages": [
         {
             "name": "composer/installers",
@@ -326,6 +326,26 @@
             "time": "2015-12-29 15:10:30"
         },
         {
+            "name": "wpackagist-plugin/acf-to-rest-api",
+            "version": "2.0.6",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/acf-to-rest-api/",
+                "reference": "tags/2.0.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/acf-to-rest-api.2.0.6.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/acf-to-rest-api/"
+        },
+        {
             "name": "wpackagist-plugin/advanced-custom-fields",
             "version": "4.4.5",
             "source": {
@@ -386,6 +406,46 @@
             "homepage": "https://wordpress.org/plugins/ninja-forms/"
         },
         {
+            "name": "wpackagist-plugin/really-simple-csv-importer",
+            "version": "1.3",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/really-simple-csv-importer/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/really-simple-csv-importer.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/really-simple-csv-importer/"
+        },
+        {
+            "name": "wpackagist-plugin/rest-api",
+            "version": "2.0-beta12",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/rest-api/",
+                "reference": "tags/2.0-beta12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/rest-api.2.0-beta12.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/rest-api/"
+        },
+        {
             "name": "wpackagist-plugin/types",
             "version": "1.8.11",
             "source": {
@@ -429,7 +489,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpackagist-plugin/rest-api": 10
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

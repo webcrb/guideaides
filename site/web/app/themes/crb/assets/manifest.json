@@ -19,9 +19,24 @@
     },
     "jquery.js": {
       "bower": ["jquery"]
+    },
+    "vendor.js" : {
+      "bower" : [
+        "angular", 
+        "angular-animate", 
+        "angular-touch", 
+        "angular-sanitize", 
+        "angular-resource",
+        "angucomplete-alt"
+      ]
+    },
+    "search.js": {
+      "files": [
+        "scripts/search.js"
+      ]
     }
   },
   "config": {
-    "devUrl": "http://example.dev"
+    "devUrl": "http://localhost/guidaides/site/web"
   }
 }

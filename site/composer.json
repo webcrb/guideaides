@@ -36,14 +36,17 @@
     "php": ">=5.5",
     "composer/installers": "~1.0.12",
     "vlucas/phpdotenv": "^2.0.1",
-    "johnpbloch/wordpress": "4.4.2",
+    "johnpbloch/wordpress": "~4",
     "oscarotero/env": "^1.0",
     "wpackagist-plugin/advanced-custom-fields": "^4.4",
     "wpackagist-plugin/types": "^1",
     "roots/soil": "^3.6",
     "wpackagist-plugin/ninja-forms": "^2.9",
     "wpackagist-plugin/wordpress-seo": "^3.0",
-    "wpackagist-plugin/members": "^1.1"
+    "wpackagist-plugin/members": "^1.1",
+    "wpackagist-plugin/really-simple-csv-importer": "*",
+    "wpackagist-plugin/rest-api": "2.0-beta12",
+    "wpackagist-plugin/acf-to-rest-api": "~2"
   },
   "extra": {
     "installer-paths": {
