@@ -32,6 +32,7 @@ function excerpt_more() {
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
+
 /**
 * Add REST API support to aide
 */
@@ -46,5 +47,43 @@ global $wp_post_types;
       $wp_post_types[$post_type_name]->rest_base = $post_type_name;
       $wp_post_types[$post_type_name]->rest_controller_class = 'WP_REST_Posts_Controller';
   }
+
+}
+
+/**
+* Add REST API support to an already registered taxonomy.
+*/
+add_action( 'init', __NAMESPACE__ . '\\profil_rest_support', 25 );
+function profil_rest_support() {
+  global $wp_taxonomies;
+
+  //be sure to set this to the name of your taxonomy!
+  $taxonomy_name = 'profil';
+
+  if ( isset( $wp_taxonomies[ $taxonomy_name ] ) ) {
+      $wp_taxonomies[ $taxonomy_name ]->show_in_rest = true;
+      $wp_taxonomies[ $taxonomy_name ]->rest_base = $taxonomy_name;
+      $wp_taxonomies[ $taxonomy_name ]->rest_controller_class = 'WP_REST_Terms_Controller';
+  }
+
+
+}
+
+/**
+* Add REST API support to an already registered taxonomy.
+*/
+add_action( 'init', __NAMESPACE__ . '\\thematique_rest_support', 25 );
+function thematique_rest_support() {
+  global $wp_taxonomies;
+
+  //be sure to set this to the name of your taxonomy!
+  $taxonomy_name = 'thematique';
+
+  if ( isset( $wp_taxonomies[ $taxonomy_name ] ) ) {
+      $wp_taxonomies[ $taxonomy_name ]->show_in_rest = true;
+      $wp_taxonomies[ $taxonomy_name ]->rest_base = $taxonomy_name;
+      $wp_taxonomies[ $taxonomy_name ]->rest_controller_class = 'WP_REST_Terms_Controller';
+  }
+
 
 }

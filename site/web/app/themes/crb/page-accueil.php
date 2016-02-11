@@ -36,9 +36,9 @@
 			<ul class="row list-unstyled list-results">
 				<li ng-repeat="aide in main.aides.data | filter:{ tags: term.originalObject.id }" class="col-md-4 list-item">
 					<div class="list-item-wrap">
-						<h2 class="h5" ng-bind-html="aide.title.rendered"></h2>
-						<p ng-bind-html="aide.title.excerpt"></p>
-						<p class="text-md-right"><a ng-href="{{ aide.link }}">consulter</a></p>
+						<h2 class="aide-title" ng-bind-html="aide.title.rendered"></h2>
+						<p ng-bind-html="aide.excerpt.rendered"></p>
+						<a ng-href="{{ aide.link }}" class="btn btn-primary-outline btn-block">consulter &#8594; </a></p>
 					</div>
 				</li>
 			</ul>
