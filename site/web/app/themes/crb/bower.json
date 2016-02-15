@@ -8,15 +8,24 @@
   "private": true,
   "dependencies": {
     "bootstrap": "~4",
-    "angular": "~1.5.0",
-    "angular-animate": "~1.5.0",
-    "angular-touch": "~1.5.0",
-    "angular-sanitize": "~1.5.0",
-    "angular-resource": "~1.5.0",
-    "angular-route": "~1.5.0",
+    "angular": "~1.4.0",
+    "angular-animate": "~1.4.0",
+    "angular-touch": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "angular-resource": "~1.4.0",
     "animate.css": "~3.5.1",
-    "angularjs-viewhead": "~0.0.1",
-    "angucomplete-alt": "~2.2.0"
+    "angucomplete-alt": "~2.2.0",
+    "isotope": "*",
+    "tether": "~1.1.1"
   },
-  "overrides": {}
+  "resolutions": {
+    "angular": "~1.4.x"
+  },
+  "overrides": {
+    "isotope": {
+      "main": [
+        "dist/isotope.pkgd.js"
+      ]
+    }
+  }
 }

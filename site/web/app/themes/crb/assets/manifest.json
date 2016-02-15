@@ -20,13 +20,17 @@
     "jquery.js": {
       "bower": ["jquery"]
     },
-    "vendor.js" : {
+     "isotope.js": {
+      "bower": ["isotope"]
+    },
+    "angular.js" : {
       "bower" : [
         "angular", 
         "angular-animate", 
         "angular-touch", 
         "angular-sanitize", 
         "angular-resource",
+        "angular-route",
         "angucomplete-alt"
       ]
     },

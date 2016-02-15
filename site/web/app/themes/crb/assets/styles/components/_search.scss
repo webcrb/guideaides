@@ -1,0 +1,22 @@
+.angucomplete-dropdown {
+	padding: 1em;
+	background: rgba(255,255,255, 0.9);
+	position: absolute;
+	z-index: 1000;
+	width: 90%;
+	max-width: 600px;
+	border: 1px solid $gray-lighter;
+	box-shadow: 2px 2px 2px $gray-lighter;
+}
+.angucomplete-row {
+	padding: 0.5em;
+	border-bottom: 1px solid $gray-lighter;
+
+	&:hover, &:focus {
+		background: $brand-primary;
+		color: #fff;
+	}
+}
+.angucomplete-description {
+	font-size: 0.8em;
+}

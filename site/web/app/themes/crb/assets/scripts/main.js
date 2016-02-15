@@ -32,6 +32,31 @@
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
+
+        var $container = $('.list-results');
+        var $checkboxes = $('.checkbox');
+
+        $checkboxes.addClass('text-primary');
+        
+        $container.isotope({
+          itemSelector: '.list-item'
+        });
+        
+        $checkboxes.change(function(){
+          var filters = [];
+          // get checked checkboxes values
+          $checkboxes.filter(':checked').each(function(){
+            filters.push( this.value );
+          });
+          // ['.red', '.blue'] -> '.red, .blue'
+          filters = filters.join(', ');
+          $container.isotope({ filter: filters });
+          console.log(filters);
+        });
+
+        
+        var $items = $container.children();
+     
       }
     },
     // About us page, note the change from about-us to about_us.

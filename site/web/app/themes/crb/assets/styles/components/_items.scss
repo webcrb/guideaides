@@ -1,0 +1,32 @@
+.list-results {
+
+	.list-item {
+		margin-bottom: $grid-gutter-width;
+		width: 100%;
+	}
+
+	.aide-excerpt {
+		background: $gray-lightest;
+		padding: $spacer;
+		border-radius: $border-radius;
+		box-shadow: 1px 1px 0px $gray-lighter;
+
+		.aide-header {
+			padding-bottom: 0.6em;
+			margin-bottom: 0.6em;
+			border-bottom: 1px solid $gray-lighter;
+		}
+
+		.aide-title {
+			font-size: 1.3rem;
+		}
+		
+		p:last-child {
+			margin-bottom: 0;
+		}
+
+
+	}
+
+	
+}
