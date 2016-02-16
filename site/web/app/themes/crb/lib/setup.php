@@ -96,7 +96,9 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
+  wp_enqueue_style('crbicon', 'http://guidestyles.bretagne.bzh/styles/crbicon.css', false, null);
   wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
+
 
   wp_register_script('angular', Assets\asset_path('scripts/angular.js'), [], null, true);
   wp_register_script('isotope', Assets\asset_path('scripts/isotope.js'), ['jquery'], null, true);

@@ -1,0 +1,14 @@
+.content-info {
+	background: $gray-dark;
+	color: #fff;
+	a {
+		color: $gray-lighter;
+		display: inline-block;
+		border-bottom: 1px dotted #fff;
+
+		&:hover, &:focus {
+			color: #fff;
+			border-bottom-style: solid;
+		}
+	}
+}

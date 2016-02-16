@@ -33,29 +33,29 @@
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
 
-        var $container = $('.list-results');
-        var $checkboxes = $('.checkbox');
+        // var $container = $('.list-results');
+        // var $checkboxes = $('.checkbox');
 
-        $checkboxes.addClass('text-primary');
+        // $checkboxes.addClass('text-primary');
         
-        $container.isotope({
-          itemSelector: '.list-item'
-        });
+        // $container.isotope({
+        //   itemSelector: '.list-item'
+        // });
         
-        $checkboxes.change(function(){
-          var filters = [];
-          // get checked checkboxes values
-          $checkboxes.filter(':checked').each(function(){
-            filters.push( this.value );
-          });
-          // ['.red', '.blue'] -> '.red, .blue'
-          filters = filters.join(', ');
-          $container.isotope({ filter: filters });
-          console.log(filters);
-        });
+        // $checkboxes.change(function(){
+        //   var filters = [];
+        //   // get checked checkboxes values
+        //   $checkboxes.filter(':checked').each(function(){
+        //     filters.push( this.value );
+        //   });
+        //   // ['.red', '.blue'] -> '.red, .blue'
+        //   filters = filters.join(', ');
+        //   $container.isotope({ filter: filters });
+        //   console.log(filters);
+        // });
 
         
-        var $items = $container.children();
+        // var $items = $container.children();
      
       }
     },
