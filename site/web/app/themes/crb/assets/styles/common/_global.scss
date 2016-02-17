@@ -1,3 +1,10 @@
 .section {
 	padding: ($spacer * 2) 0;
 }
+
+.encadre {
+	padding: $spacer;
+	margin: $spacer 0;
+	border: 1px solid $gray-lighter;
+	background: $gray-lightest;
+}

@@ -1,0 +1,62 @@
+.panel {
+	
+	margin-bottom: 1em;
+
+	.panel-heading {
+
+		.panel-title {
+			margin: 0;
+			font-size: 1.4rem;
+			font-weight: 600;
+
+			a {
+				display: block;
+				padding: 0 $spacer;
+				background: $gray-lightest;
+				position: relative;
+				height: 4rem;
+				line-height: 4rem;
+				padding-right: 5rem;
+
+				&:before {
+					content: '';
+					display: block;
+					width: 4rem;
+					height: 4rem;
+					line-height: 4rem;
+					text-align: center;
+					position: absolute;
+					top: 0;
+					right: 0;
+					color: #fff;
+					background: $gray-lighter;
+					transition: all 0.2s ease-out;
+				}
+
+				&:hover, &.active {
+
+					text-decoration: none;
+
+					&:before {
+						background: $brand-primary;
+					}
+
+				}
+
+				&:focus {
+					text-decoration: none;
+				}
+
+			}
+		}
+
+		&.in {
+			background: $brand-primary;
+		}
+
+	}
+
+	.panel-collapse {
+		padding: $spacer 0;
+	}
+}
