@@ -101,7 +101,6 @@ function assets() {
 
 
   wp_register_script('angular', Assets\asset_path('scripts/angular.js'), [], null, true);
-  wp_register_script('isotope', Assets\asset_path('scripts/isotope.js'), ['jquery'], null, true);
   wp_register_script('search', Assets\asset_path('scripts/search.js'), ['angular'], null, true);
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
@@ -112,6 +111,6 @@ function assets() {
     wp_enqueue_script('search'); 
   }
 
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['isotope'], null, true);
+  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

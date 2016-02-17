@@ -6,34 +6,30 @@
 		'ngTouch', 
 		'ngSanitize',
 		'ngResource',
-		'angucomplete-alt'
+		'angucomplete-alt',
+		'checklist-model'
 	]);
 
 })();
 
 (function () {
 
-  	function searchController($http, $location) {
+  	function searchController(dataSrv) {
 
 	    var model = this;
+	    model.aides;
+	    model.etiquettes;
+	    model.thematiques;
+	    model.profils;
+	    model.message;
+	    model.search = {};
 
-	    model.aides = [];
-	    model.etiquettes = [];
-	    model.thematiques = [];
-	    model.profils = [];
+	    getAides();
+	    getEtiquettes();
+	    getProfils();
+	    getThematiques();
 
-	    model.isSomethingLoading = true;
-	    model.method = 'GET';
-	    model.aides.url = $location.absUrl() + 'wp-json/wp/v2/aide?per_page=100&filter[orderby]=rand';
-	    model.etiquettes.url = $location.absUrl() + 'wp-json/wp/v2/tags?per_page=100';
-	    model.thematiques.url = $location.absUrl() + 'wp-json/wp/v2/thematique?per_page=100';
-	    model.profils.url = $location.absUrl() + 'wp-json/wp/v2/profil?per_page=100';
-	    model.loading = true;
-
-	    model.getClass = getClass;
-	    model.Filter = Filter;
-
-	   	function getClass(object) {
+	    function getClass(object) {
 	   		var slugs = [];
 
 			for (var i = 0; i < object.length; i++) {
@@ -45,61 +41,125 @@
 			return slugs;
 	   	}
 
-	   	function Filter(value) {
-	   		return $emit('iso-option', {
-	   			filter: '.'+ value
-	   			}
-	   		);
-	   	}
+	    function getAides() {
+	    	dataSrv.data('aide')
+	    		.success(function(data) {
+	    			model.aides = data;
+	    		})
+	    		.error(function(error) {
+	    			model.message.aides = error.message;
+	    		});
+	    }
 
-	    $http({method: model.method, url: model.aides.url}).
-	        then(function(response) {
-	          model.aides.status = response.status;
-	          model.aides.data = response.data;
-	          model.aides.isSomethingLoading = false;
-	        }, function(response) {
-	          model.aides.data = response.data || 'Request failed';
-	          model.aides.status = response.status;
-	    });
+	    function getEtiquettes() {
+	    	dataSrv.data('tags')
+	    		.success(function(data) {
+	    			model.etiquettes = data;
+	    		})
+	    		.error(function(error) {
+	    			model.message.etiquettes = error.message;
+	    		});
+	    }
 
-	    $http({method: model.method, url: model.etiquettes.url}).
-	        then(function(response) {
-	          model.etiquettes.status = response.status;
-	          model.etiquettes.data = response.data;
-	          model.etiquettes.isSomethingLoading = false;
-	        }, function(response) {
-	          model.etiquettes.data = response.data || 'Request failed';
-	          model.etiquettes.status = response.status;
-	    });
+	    function getProfils() {
+	    	dataSrv.data('profil')
+	    		.success(function(data) {
+	    			model.profils = data;
+	    		})
+	    		.error(function(error) {
+	    			model.message.profils = error.message;
+	    		});
+	    }
 
-	    $http({method: model.method, url: model.thematiques.url}).
-	        then(function(response) {
-	          model.thematiques.status = response.status;
-	          model.thematiques.data = response.data;
-	          model.thematiques.isSomethingLoading = false;
-	        }, function(response) {
-	          model.thematiques.data = response.data || 'Request failed';
-	          model.thematiques.status = response.status;
-	    });
-
-	    $http({method: model.method, url: model.profils.url}).
-	        then(function(response) {
-	          model.profils.status = response.status;
-	          model.profils.data = response.data;
-	          model.profils.isSomethingLoading = false;
-	        }, function(response) {
-	          model.profils.data = response.data || 'Request failed';
-	          model.profils.status = response.status;
-	    });
-
+	    function getThematiques() {
+	    	dataSrv.data('thematique')
+	    		.success(function(data) {
+	    			model.thematiques = data;
+	    		})
+	    		.error(function(error) {
+	    			model.message.thematiques = error.message;
+	    		});
+	    }
+	   
+	    model.loading = true;
+	    model.getClass = getClass;
 
 	}
 
+	function dataSrv($http, $location) {
 
-	searchController.$inject = ['$http', '$location'];
+		var urlBase = $location.absUrl() + 'wp-json/wp/v2/';
+		var page = 100;
+
+		this.data = function (type) {
+			return $http.get(urlBase + type + '?per_page=' + page);
+		}
+	}
+
+	function arrayFilter($filter) {
+		
+		var comparator = function (actual, expected) {
+	        if (angular.isUndefined(actual)) {
+	          // No substring matching against `undefined`
+	          return false;
+	        }
+	        
+	        if ((actual === null) || (expected === null)) {
+	          // No substring matching against `null`; only match against `null`
+	          return actual === expected;
+	        }
+	        
+	        if ((angular.isObject(expected) && !angular.isArray(expected)) || (angular.isObject(actual) && !hasCustomToString(actual))) {
+	          // Should not compare primitives against objects, unless they have custom `toString` method
+	          return false;
+	        }
+
+	        actual = angular.lowercase('' + actual);
+	        
+	        if (angular.isArray(expected)) {
+
+	        	if (expected.length === 0) {
+
+	        		return true;
+
+	        	} else {
+	          
+	          	var match = false;
+	          
+		        expected.forEach(function (e) {
+		            e = angular.lowercase('' + e);
+		            if (angular.equals(e, actual)) {
+		              match = true;
+		            }
+		        });
+	          
+	          	return match;
+
+	          	}
+
+	        } else {
+	          
+	          expected = angular.lowercase('' + expected);
+	          return actual.indexOf(expected) !== -1;
+
+	        }
+	    };
+      
+      	return function (campaigns, filters) {
+
+        	return $filter('filter')(campaigns, filters, comparator);
+
+      	};
+	}
+
+	searchController.$inject = ['dataSrv'];
+	dataSrv.$inject = ['$http', '$location'];
+	arrayFilter.$inject = ['$filter'];
 
 	angular
 		.module('searchEngine')
+		.service('dataSrv', dataSrv)
+		.filter('arrayFilter', arrayFilter)
   		.controller('searchController', searchController);
 
 })();

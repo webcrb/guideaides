@@ -31,7 +31,8 @@
         "angular-sanitize", 
         "angular-resource",
         "angular-route",
-        "angucomplete-alt"
+        "angucomplete-alt",
+        "checklist-model"
       ]
     },
     "search.js": {
