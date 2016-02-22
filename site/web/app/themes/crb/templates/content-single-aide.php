@@ -5,7 +5,7 @@
       <li class="active">Aides &amp; dispositifs</li>
     </ol>
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 col-md-offset-2">
           <article <?php post_class(); ?>>
         
         <header class="aide-header">
@@ -105,6 +105,22 @@
 
       </div> <!-- col -->
      
+      <div class="col-md-4">
+         <aside class="encadre">
+            <h2>Contenus secondaires</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur impedit nisi, sapiente ullam at necessitatibus iure, soluta. Labore porro placeat sed soluta, fugit velit, omnis, possimus necessitatibus dolores error aspernatur.</p>
+        </aside>
+      </div> <!-- col -->
+
+      <div class="col-md-4">
+         <aside class="encadre">
+            <h2>Contenus secondaires</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur impedit nisi, sapiente ullam at necessitatibus iure, soluta. Labore porro placeat sed soluta, fugit velit, omnis, possimus necessitatibus dolores error aspernatur.</p>
+        </aside>
+      </div> <!-- col -->
+
       <div class="col-md-4">
          <aside class="encadre">
             <h2>Contenus secondaires</h2>

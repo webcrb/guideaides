@@ -29,6 +29,7 @@
 			.searchform {
 				input {
 					background: rgba(255,255,255,0.8);
+					transition: all 0.2s ease;
 
 					&:focus {
 						background: rgba(255,255,255,1);

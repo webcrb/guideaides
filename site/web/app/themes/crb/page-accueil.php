@@ -15,7 +15,7 @@
 				<div class="text">
 				  <?php //get_template_part('templates/page', 'header'); ?>
 				  <h1 class="display-2"><i class="icon-logo_fr"></i><br><?php bloginfo('name'); ?> <small class="sr-only">Région Bretagne</small></h1>
-				  <?php bloginfo('slogan'); ?>
+				  <?php bloginfo('description'); ?>
 				  <?php get_template_part('templates/content', 'page'); ?>
 				 </div>
 				<?php endwhile; ?>
